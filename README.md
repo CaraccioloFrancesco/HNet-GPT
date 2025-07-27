@@ -1,7 +1,4 @@
 # HNet-GPT
-HNet-GPT: Structure-Aware Code Generation via Hierarchical Encoding and Transformer Decoding, a novel Hybrid architecture
-
-
 # HNet-GPT: Structure-Aware Code Generation via Hierarchical Encoding and Transformer Decoding
 
 **Preliminary Research** - Seeking community validation and collaboration
