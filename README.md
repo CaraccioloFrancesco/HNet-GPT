@@ -8,10 +8,16 @@
 - How do we best combine structural and sequential information?
 - What are the limits of small-scale transformer training?
 
-## Current Results (Preliminary)
+## Current Results (Preliminary) and the story
 - Small-scale experiments show promise
 - Need validation on larger datasets
 - Seeking collaboration for scaling up
+
+- Your Research Story:
+
+Chapter 1: "We found hierarchical encoding helps (+40% from scratch)"
+Chapter 2: "It also works as efficient adapters (+55% with 7.9% params)"
+Chapter 3: "Future work: Optimize for generation quality"
 
 
 ## Limitations & Future Work
