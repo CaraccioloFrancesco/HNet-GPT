@@ -4,6 +4,9 @@
 **Exploratory Research** - Hierarchical encoding for structure + GPT-2 for generation. 
 Seeking community feedback and collaboration
 
+
+
+
 ## The idea
 Presentation of a novel architecture HNet-GPT with the goal of optimization Code understanting and generation tasks. This architecture uses hierchical encoding for structure and GPT-2 for generation --> improve this part 
 
@@ -29,10 +32,11 @@ Currently the training is limited and done on a small dataset. The programming l
 
 ## Call for Collaboration
 I am  open-sourcing everything to:
+- Start collaborations
 - Enable reproducibility
 - Gather community feedback
 - Validate results across different setups
-- Explore further improvements
+- Explore further improvements on the architecure and the experiment design
 
 ## Preliminary Findings
 but to be rerunned
