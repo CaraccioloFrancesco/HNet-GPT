@@ -8,7 +8,17 @@ Seeking community feedback and collaboration
 
 
 ## The idea
-Presentation of a novel architecture HNet-GPT with the goal of optimization Code understanting and generation tasks. This architecture uses hierchical encoding for structure and GPT-2 for generation --> improve this part 
+Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in code generation, but they treat source code as a flat sequence of tokens, ignoring its rich structural and hierarchical nature. In this work, I  propose a lightweight hybrid architecture that enhances code generation by combining a hierarchical chunk-based encoder (H Net) with a pretrained autoregressive decoder (GPT-2). This model leverages structural priors by encoding code into semantically coherent segments using similarity-driven dynamic chunking, routed through a Transformer-based encoder, and decoded using GPT 2’s language modeling head.
+
+•	Problem: Existing code generation models (e.g., GPT) tokenize flatly, ignoring structural hierarchy.
+•	Motivation: Human code understanding involves structural chunking and semantic abstraction.
+•	Proposal: Combine H-Net encoder (chunk-aware) with a GPT decoder (pretrained generation) — called HNet GPT.
+•	Contributions:
+o	New hybrid architecture for code modeling
+o	Empirical improvements in perplexity over baseline GPT-2
+o	Open-source training pipeline and reproducibility
+
+
 
 ## The questions
 - Can hierarchical encoding improve code understanding?
