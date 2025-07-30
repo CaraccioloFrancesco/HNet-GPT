@@ -15,6 +15,26 @@ o	New hybrid architecture for code modeling
 o	Empirical improvements in perplexity over baseline GPT-2
 o	Open-source training pipeline and reproducibility
 
+<img width="681" height="181" alt="Diagramma senza titolo drawio" src="https://github.com/user-attachments/assets/d32aa8c8-479b-4746-a922-675c56f90e05" />
+
+**Key Components:**
+
+1. **Hierarchical Encoder**
+    - Adaptive code-structure chunking
+    - Multi-level attention processing
+    - Structure-aware representations
+
+
+2. **Smart Fusion Mechanism**
+    - Complexity-aware gating
+    - Dynamic feature combination
+    - Preserves both structural and sequential information
+
+
+3. **GPT-2 Decoder Integration**
+    - Leverages pre-trained knowledge
+    - Proven autoregressive generation
+    - Enhanced with hierarchical context
 
 
 ## The questions
