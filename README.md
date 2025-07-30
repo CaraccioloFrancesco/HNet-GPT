@@ -4,6 +4,9 @@
 **Exploratory Research** - Hierarchical encoding for structure + GPT-2 for generation. 
 Seeking community feedback and collaboration
 
+## The idea
+Presentation of a novel architecture HNet-GPT with the goal of optimization Code understanting and generation tasks. This architecture uses hierchical encoding for structure and GPT-2 for generation --> improve this part 
+
 ## The questions
 - Can hierarchical encoding improve code understanding?
 - How do we best combine structural and sequential information?
@@ -22,6 +25,7 @@ Chapter 3: "Future work: Optimize for generation quality"
 
 
 ## Limitations & Future Work
+Currently the training is limited and done on a small dataset. The programming language used is python with its adaptive chunking based on code syntax (e.g., def, class, if) is smart and aligns with how code is semantically structured.
 
 ## Call for Collaboration
 I am  open-sourcing everything to:
@@ -37,7 +41,12 @@ but to be rerunned
 - Comprehensive evaluation on MBPP dataset
 
 ## Next Steps
-- [ ] Scale to larger models --> more recent GPT
+- [ ] Scale to larger models --> Connect to a more recent GPT
 - [ ] Test on more datasets --> train on C/C++
 - [ ] Optimize architecture
 - [ ] Community feedback integration
+
+
+## How to use it 
+
+full end-to-end benchmark framework refer to the notebook (baselines, training, evaluation, and analysis)
