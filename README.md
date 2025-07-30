@@ -1,7 +1,8 @@
 # HNet-GPT
 # HNet-GPT: Structure-Aware Code Generation via Hierarchical Encoding and Transformer Decoding
 
-**Exploratory Research** - Seeking community feedback and collaboration
+**Exploratory Research** - Hierarchical encoding for structure + GPT-2 for generation. 
+Seeking community feedback and collaboration
 
 ## The questions
 - Can hierarchical encoding improve code understanding?
