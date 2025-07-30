@@ -35,7 +35,7 @@ Chapter 3: "Future work: Optimize for generation quality"
 
 
 ## Limitations & Future Work
-Currently the training is limited and done on a small dataset. The programming language used is python with its adaptive chunking based on code syntax (e.g., def, class, if) is smart and aligns with how code is semantically structured.
+Currently the training is limited and done on a small dataset. 25 epochs might not be enough to properly train these architectures from scratch. The programming language used is python with its adaptive chunking based on code syntax (e.g., def, class, if) is smart and aligns with how code is semantically structured.
 
 ## Call for Collaboration
 I am  open-sourcing everything to:
