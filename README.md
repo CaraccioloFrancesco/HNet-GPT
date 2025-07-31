@@ -11,13 +11,10 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 
 
 
-- **Problem**: Existing code generation models (e.g., GPT) tokenize flatly, ignoring structural hierarchy.
+- **Problem**: Existing code generation models (like GPT) tokenize flatly, ignoring structural hierarchy.
 - **Motivation**: Human code understanding involves structural chunking and semantic abstraction.
-- **Proposal**: Combine H-Net encoder (chunk-aware) with a GPT decoder (pretrained generation) — called HNet GPT.
-- **Contributions**:
-        - New hybrid architecture for code modeling
-        - Empirical improvements in perplexity over baseline GPT-2
-        - Open-source training pipeline and reproducibility
+- **Proposal**: Combine H-Net encoder (chunk-aware) with a GPT decoder (pretrained generation) — called HNet-GPT.
+- **Contributions**: new hybrid architecture for code modeling, empirical improvements in perplexity over baseline GPT-2, open-source training pipeline and reproducibility
 
 <br/><br/>
 
@@ -46,12 +43,13 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 
 <br/><br/>
 
-## The questions
+## The Questions
 - Can hierarchical encoding improve code understanding and generation?
 - How do we best combine structural and sequential information?
 - What are the limits of small-scale transformer training?
 
 <br/><br/>
+
 ## Preliminary Findings
 Small-scale experiments show promising preliminary Results:
 
@@ -61,8 +59,9 @@ Small-scale experiments show promising preliminary Results:
 | Pure HNet         | 13.56      | 0.0%                 | 0.0%             | 0.0%          |
 | Pure GPT-2        | 13.80      | 0.0%                 | 0.0%             | 0.0%          |
 
-
-ANALYSIS: Generation Capability Breakdown
+<br/>
+Generation Capability Breakdown
+<br/>
 
 The 0% scores for pure models indicate complete generation failure,
 likely due to:
@@ -71,27 +70,17 @@ likely due to:
 2. Lack of robust token continuation mechanisms  
 3. Architecture-specific limitations in code domain
 
-Our hybrid's 32% success demonstrates that the hierarchical-sequential 
-fusion mechanism provides crucial generation stability that neither 
-pure approach achieves.
+The hybrid's 32% success demonstrates that the hierarchical-sequential fusion mechanism provides crucial generation stability that neither  pure approach achieves.
 
 
 <br/><br/>
 
-## Limitations & Future Work
-Current Limitations:
-- Training Scale and Duration
-Our current implementation faces several training-related constraints that limit the full potential of the proposed architecture. The training was conducted on a relatively small dataset of 4,000 training examples from CodeSearchNet Python, which, while sufficient to demonstrate architectural benefits, may not capture the full diversity of programming patterns found in larger codebases. Additionally, the 25-epoch training regimen, though showing convergence in perplexity metrics, may be insufficient for the complex hierarchical-sequential fusion mechanism to reach optimal performance. This is evidenced by the fact that while our hybrid achieved 32% functional correctness compared to 0% for baseline approaches, there remains substantial room for improvement with extended training.
-The conservative learning rate (1e-4) and gradual unfreezing strategy, while ensuring training stability, may have limited the speed of convergence. Future work could explore more aggressive training schedules or advanced optimization techniques such as learning rate scheduling and adaptive batch sizing to accelerate the learning process.
+## Current Limitations
+- Training Scale and Duration: the current implementation faces several training-related constraints that limit the full potential of the proposed architecture. Training conducted on small dataset of 4,000 training examples from CodeSearchNet Python. 25-epoch training regimen, may be insufficient for the complex hierarchical-sequential fusion mechanism to reach optimal performance.Future work could explore more aggressive training schedules or advanced optimization techniques such as learning rate scheduling and adaptive batch sizing to accelerate the learning process.
 
-- Evaluation Methodology
+- Evaluation Methodology: The functional correctness evaluation, while revealing clear architectural advantages, remains limited in scope with five test cases covering basic programming constructs. A more comprehensive evaluation would benefit from broader test suites including complex algorithmic challenges and the metrics could be enhanced with more sophisticated measures such as semantic similarity, execution correctness on diverse test cases, and human evaluation of code quality and readability.<br/>
 
-
-Future Work:
-Edge Computing Potential: Our results suggest promising opportunities for edge deployment and resource-efficient applications. The fact that meaningful architectural differences emerge even with limited training (25 epochs) and modest computational resources indicates that the hierarchical-sequential fusion mechanism may be inherently efficient. The hybrid's exclusive success in functional code generation (32% vs 0%) demonstrates that architectural innovation, rather than simply scale, drives performance improvements.
-
-Currently the training is limited and done on a small dataset. 25 epochs might not be enough to properly train these architectures from scratch. The programming language used is python with its adaptive chunking based on code syntax (e.g., def, class, if) is smart and aligns with how code is semantically structured.
-It also works as efficient adapters
+<br/><br/>
 
 ## Call for Collaboration
 I am  open-sourcing everything to:
@@ -101,7 +90,7 @@ I am  open-sourcing everything to:
 - Validate results across different setups
 - Explore further improvements on the architecure and the experiment design
 
-
+<br/><br/>
 
 ## Next Steps
 - [ ] Architecture Scaling and Modernization --> Connect to GPT-4/CodeLlama backbone: Upgrade from GPT-2 to more recent foundation models
@@ -112,6 +101,7 @@ I am  open-sourcing everything to:
 - [ ] Edge Computing and Efficiency --> Lightweight model variants: Develop resource-efficient versions for edge deployment
 - [ ] Community feedback integration
 
+<br/><br/>
 
 ## How to use it 
 
