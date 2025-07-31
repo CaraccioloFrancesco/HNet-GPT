@@ -53,7 +53,9 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 ## Preliminary Findings
 > [!NOTE]
 > These scores reflect the model's ability to generate syntactically valid and pattern-matching completions under the specific test conditions. 
+
 <br/>
+
 Small-scale experiments show promising preliminary results:
 
 | Architecture      | Perplexity | Pattern Recognition  | Code Token Usage | Overall Score |
@@ -98,7 +100,7 @@ I am  open-sourcing everything to:
 ## Next Steps
 - [ ] Architecture Scaling and Modernization --> Connect to GPT-4/CodeLlama backbone: Upgrade from GPT-2 to more recent foundation models
 - [ ] Enhanced Evaluation and Benchmarking --> Comprehensive functional testing adn add Human evaluation studies
-- [ ] Optimize fusion mechanism --> Refine hierarchical-sequential integration based on current findings
+- [ ] Optimize the Hybrid Architecure Mechanism --> Improve the heuristic-Based Chunking (Abstract Syntax Tree (AST) parser), refine hierarchical-sequential integration based on current findings
 - [ ] Multi-Language Expansion --> Extend to C/C++ and JavaScript/TypeScript programming
 - [ ] Advanced Training Methodologies --> Include results using Curriculum learning implementation and Reinforcement learning from execution feedback
 - [ ] Edge Computing and Efficiency --> Lightweight model variants: Develop resource-efficient versions for edge deployment
@@ -107,5 +109,12 @@ I am  open-sourcing everything to:
 <br/><br/>
 
 ## How to use it 
-
-full end-to-end benchmark framework refer to the notebook (baselines, training, evaluation, and analysis)
+The notebook is a full end-to-end framework that will:
+1. Install all required dependencies.
+2. Load the code_search_net dataset (or fall back to a built-in synthetic dataset if unavailable).
+3. Define the three model architectures: Pure GPT-2, Pure HNet, and the novel HNet-GPT Hybrid.
+4. Train each model sequentially. The training process includes gradual unfreezing and will save the final model weights to your Google Drive in a folder named hnet_gpt2_models.
+5. Evaluate the trained models using two methods:
+    - Standard perplexity on a test set.
+    - The custom code-focused evaluation (Syntax Validity, Pattern Recognition, etc.).
+6. Display a final results table comparing the performance of all three architectures.
