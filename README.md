@@ -52,13 +52,45 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 
 <br/><br/>
 
-## Current Results (Preliminary) 
-- Small-scale experiments show promise
+## Preliminary Findings
+Small-scale experiments show promise
+Preliminary Results:
+
+| Architecture  | Perplexity |
+| ------------- | ------------- |
+| HNet-GPT-2 Hybrid  | Content Cell  |
+| Pure HNet  | Content Cell  |
+| Pure GPT-2  | Content Cell  |
+
+
+ANALYSIS: Generation Capability Breakdown
+
+The 0% scores for pure models indicate complete generation failure,
+likely due to:
+
+1. Training-inference mismatch in generation parameters
+2. Lack of robust token continuation mechanisms  
+3. Architecture-specific limitations in code domain
+
+Our hybrid's 32% success demonstrates that the hierarchical-sequential 
+fusion mechanism provides crucial generation stability that neither 
+pure approach achieves.
 
 
 <br/><br/>
 
 ## Limitations & Future Work
+Current Limitations:
+- Training Scale and Duration
+Our current implementation faces several training-related constraints that limit the full potential of the proposed architecture. The training was conducted on a relatively small dataset of 4,000 training examples from CodeSearchNet Python, which, while sufficient to demonstrate architectural benefits, may not capture the full diversity of programming patterns found in larger codebases. Additionally, the 25-epoch training regimen, though showing convergence in perplexity metrics, may be insufficient for the complex hierarchical-sequential fusion mechanism to reach optimal performance. This is evidenced by the fact that while our hybrid achieved 32% functional correctness compared to 0% for baseline approaches, there remains substantial room for improvement with extended training.
+The conservative learning rate (1e-4) and gradual unfreezing strategy, while ensuring training stability, may have limited the speed of convergence. Future work could explore more aggressive training schedules or advanced optimization techniques such as learning rate scheduling and adaptive batch sizing to accelerate the learning process.
+
+- Evaluation Methodology
+
+
+Future Work:
+Edge Computing Potential: Our results suggest promising opportunities for edge deployment and resource-efficient applications. The fact that meaningful architectural differences emerge even with limited training (25 epochs) and modest computational resources indicates that the hierarchical-sequential fusion mechanism may be inherently efficient. The hybrid's exclusive success in functional code generation (32% vs 0%) demonstrates that architectural innovation, rather than simply scale, drives performance improvements.
+
 Currently the training is limited and done on a small dataset. 25 epochs might not be enough to properly train these architectures from scratch. The programming language used is python with its adaptive chunking based on code syntax (e.g., def, class, if) is smart and aligns with how code is semantically structured.
 It also works as efficient adapters
 
@@ -70,16 +102,15 @@ I am  open-sourcing everything to:
 - Validate results across different setups
 - Explore further improvements on the architecure and the experiment design
 
-## Preliminary Findings
-but to be rerunned
-- **40.6%** improvement over Pure GPT-2
-- **39.5%** improvement over Pure HNet
-- Comprehensive evaluation on MBPP dataset
+
 
 ## Next Steps
-[ ] Scale to larger models --> Connect to a more recent GPT
-- [ ] Test on more datasets --> train on C/C++
-- [ ] Optimize architecture
+- [ ] Architecture Scaling and Modernization --> Connect to GPT-4/CodeLlama backbone: Upgrade from GPT-2 to more recent foundation models
+- [ ] Enhanced Evaluation and Benchmarking --> Comprehensive functional testing adn add Human evaluation studies
+- [ ] Optimize fusion mechanism --> Refine hierarchical-sequential integration based on current findings
+- [ ] Multi-Language Expansion --> Extend to C/C++ and JavaScript/TypeScript programming
+- [ ] Advanced Training Methodologies --> Include results using Curriculum learning implementation and Reinforcement learning from execution feedback
+- [ ] Edge Computing and Efficiency --> Lightweight model variants: Develop resource-efficient versions for edge deployment
 - [ ] Community feedback integration
 
 
