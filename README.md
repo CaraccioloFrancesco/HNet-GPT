@@ -51,7 +51,10 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 <br/><br/>
 
 ## Preliminary Findings
-Small-scale experiments show promising preliminary Results:
+> [!NOTE]
+> These scores reflect the model's ability to generate syntactically valid and pattern-matching completions under the specific test conditions. 
+<br/>
+Small-scale experiments show promising preliminary results:
 
 | Architecture      | Perplexity | Pattern Recognition  | Code Token Usage | Overall Score |
 | :---:             | :---:      | :---:                | :---:            | :---:         |   
