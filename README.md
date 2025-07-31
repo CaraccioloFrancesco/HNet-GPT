@@ -1,11 +1,12 @@
 # HNet-GPT
 ## HNet-GPT: Structure-Aware Code Generation via Hierarchical Encoding and Transformer Decoding
 
-**Exploratory Research** - Hierarchical encoding for structure + GPT-2 for generation. 
+**Exploratory Research** - Hierarchical encoding for structure + GPT-2 for generation for coding application
 
 Seeking community feedback and collaboration<br/><br/>
 ## The idea
-Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in code generation, but they treat source code as a flat sequence of tokens, ignoring its rich structural and hierarchical nature. In this work, I  propose a lightweight hybrid architecture that enhances code generation by combining a hierarchical chunk-based encoder (H Net) with a pretrained autoregressive decoder (GPT-2). This model leverages structural priors by encoding code into semantically coherent segments using similarity-driven dynamic chunking, routed through a Transformer-based encoder, and decoded using GPT 2’s language modeling head.
+Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in code generation, but they treat source code as a flat sequence of tokens, ignoring its rich structural and hierarchical nature. In this work, I  propose a lightweight hybrid architecture that enhances code generation by combining a hierarchical chunk-based encoder (H-Net) with a pretrained autoregressive decoder (GPT-2). This model leverages structural priors by encoding code into semantically coherent segments using similarity-driven dynamic chunking, routed through a Transformer-based encoder, and decoded using GPT 2’s language modeling head.
+<br/><br/>
 
 
 
@@ -46,21 +47,19 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 <br/><br/>
 
 ## The questions
-- Can hierarchical encoding improve code understanding?
+- Can hierarchical encoding improve code understanding and generation?
 - How do we best combine structural and sequential information?
 - What are the limits of small-scale transformer training?
 
 <br/><br/>
-
 ## Preliminary Findings
-Small-scale experiments show promise
-Preliminary Results:
+Small-scale experiments show promising preliminary Results:
 
-| Architecture  | Perplexity |
-| ------------- | ------------- |
-| HNet-GPT-2 Hybrid  | Content Cell  |
-| Pure HNet  | Content Cell  |
-| Pure GPT-2  | Content Cell  |
+| Architecture      | Perplexity | Pattern Recognition  | Code Token Usage | Overall Score |
+| :---:             | :---:      | :---:                | :---:            | :---:         |   
+| HNet-GPT-2 Hybrid | 8.20       | 60.0%                | 40.0%            | 32.0%         |
+| Pure HNet         | 13.56      | 0.0%                 | 0.0%             | 0.0%          |
+| Pure GPT-2        | 13.80      | 0.0%                 | 0.0%             | 0.0%          |
 
 
 ANALYSIS: Generation Capability Breakdown
