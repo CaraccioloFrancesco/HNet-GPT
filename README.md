@@ -121,3 +121,10 @@ The notebook is a full end-to-end framework that will:
     - Standard perplexity on a test set.
     - The custom code-focused evaluation (Syntax Validity, Pattern Recognition, etc.).
 6. Display a final results table comparing the performance of all three architectures.
+
+<br/>
+
+Or use the models standalone:
+```python
+from hnet_gpt_models import create_hnet_gpt2_hybrid
+model = create_hnet_gpt2_hybrid(vocab_size, tokenizer)
