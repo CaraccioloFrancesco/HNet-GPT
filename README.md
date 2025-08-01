@@ -124,10 +124,11 @@ The notebook is a full end-to-end framework that will:
 
 <br/>
 
-Or use the models standalone:
+### Pre-trained Models
+All models are available in this [Google Drive folder](https://drive.google.com/drive/folders/1xyT01oplU3NYXMU31bz-gm0AFSNQqi-d?usp=sharing)
+
 ```python
 from transformers import AutoTokenizer
-from huggingface_hub import hf_hub_download
 import torch
 from hnet_gpt_models import create_hnet_gpt2_hybrid
 
@@ -138,17 +139,18 @@ vocab_size = tokenizer.vocab_size
 
 # Create and load model
 model = create_hnet_gpt2_hybrid(vocab_size, tokenizer)
-
-# Download and load pre-trained weights
-model_path = hf_hub_download(
-    repo_id="your-username/hnet-gpt",  # Replace with your username
-    filename="HNet-GPT2-Hybrid.pt"
-)
-model.load_state_dict(torch.load(model_path, map_location='cpu'))
+model.load_state_dict(torch.load('models/HNet-GPT2-Hybrid.pt', map_location='cpu'))
 model.eval()
 
 # Generate code
 prompt = "def add(a, b):\n    return "
 inputs = tokenizer(prompt, return_tensors='pt')
-outputs = model.generate(inputs.input_ids, max_length=50, temperature=0.7)
+outputs = model.generate(
+    inputs.input_ids,
+    max_length=50,
+    temperature=0.7,
+    do_sample=True,
+    top_k=50,
+    eos_token_id=tokenizer.eos_token_id
+)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
