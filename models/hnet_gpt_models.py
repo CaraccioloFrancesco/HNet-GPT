@@ -4,25 +4,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
-from transformers import GPT2Model, GPT2Config, AutoTokenizer
-import time
-import math
-from tqdm.auto import tqdm
-import json
-import ast
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
-import nltk
-nltk.download('punkt')
-import re
-import ast
-import sys
-from io import StringIO
-import contextlib
-import re
-import numpy as np
-import radon.complexity as radon_complexity
-from radon.visitors import ComplexityVisitor
+from transformers import GPT2Model, GPT2Config
 
 
 
