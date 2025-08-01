@@ -13,7 +13,7 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 
 - **Problem**: Existing code generation models (like GPT) tokenize flatly, ignoring structural hierarchy.
 - **Motivation**: Human code understanding involves structural chunking and semantic abstraction.
-- **Proposal**: Combine H-Net encoder (chunk-aware) with a GPT decoder (pretrained generation) — called HNet-GPT.
+- **Proposal**: Combine H-Net encoder (chunk-aware) with a GPT decoder (pretrained generation), called HNet-GPT.
 - **Contributions**: new hybrid architecture for code modeling, empirical improvements in perplexity over baseline GPT-2, open-source training pipeline and reproducibility
 
 <br/><br/>
