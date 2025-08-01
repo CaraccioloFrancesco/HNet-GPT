@@ -52,7 +52,8 @@ Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in 
 
 ## Preliminary Findings
 > [!NOTE]
-> These scores reflect the model's ability to generate syntactically valid and pattern-matching completions under the specific test conditions. 
+> These scores aim to reflect the model's ability to generate syntactically valid and pattern-matching completions under the specific test conditions.
+
 
 <br/>
 
@@ -65,7 +66,9 @@ Small-scale experiments show promising preliminary results:
 | Pure GPT-2        | 13.80      | 0.0%                 | 0.0%             | 0.0%          |
 
 <br/>
-Generation Capability Breakdown
+
+**Generation Capability Breakdown**
+
 <br/>
 
 The 0% scores for pure models indicate complete generation failure,
