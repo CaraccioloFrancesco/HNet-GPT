@@ -111,7 +111,7 @@ I am  open-sourcing everything to:
 
 <br/><br/>
 
-## How to use it 
+## Quick Start 
 The notebook is a full end-to-end framework that will:
 1. Install all required dependencies.
 2. Load the code_search_net dataset (or fall back to a built-in synthetic dataset if unavailable).
@@ -127,6 +127,8 @@ The notebook is a full end-to-end framework that will:
 Or use the models standalone:
 ```python
 from transformers import AutoTokenizer
+from huggingface_hub import hf_hub_download
+import torch
 from hnet_gpt_models import create_hnet_gpt2_hybrid
 
 # Initialize tokenizer
@@ -134,27 +136,19 @@ tokenizer = AutoTokenizer.from_pretrained('gpt2')
 tokenizer.pad_token = tokenizer.eos_token
 vocab_size = tokenizer.vocab_size
 
-# Create model
+# Create and load model
 model = create_hnet_gpt2_hybrid(vocab_size, tokenizer)
+
+# Download and load pre-trained weights
+model_path = hf_hub_download(
+    repo_id="your-username/hnet-gpt",  # Replace with your username
+    filename="HNet-GPT2-Hybrid.pt"
+)
+model.load_state_dict(torch.load(model_path, map_location='cpu'))
+model.eval()
 
 # Generate code
 prompt = "def add(a, b):\n    return "
 inputs = tokenizer(prompt, return_tensors='pt')
-outputs = model.generate(
-    inputs.input_ids,
-    max_length=50,
-    temperature=0.7,
-    do_sample=True
-)
-generated_code = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print(generated_code)
-```
-<br/>
-
-Alternatevly:
-
-```python
-# Load pre-trained weights if available
-import torch
-model.load_state_dict(torch.load('HNet-GPT2-Hybrid.pt'))
-model.eval()
+outputs = model.generate(inputs.input_ids, max_length=50, temperature=0.7)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
