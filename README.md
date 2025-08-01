@@ -5,7 +5,7 @@
 
 Seeking community feedback and collaboration<br/><br/>
 ## The idea
-Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in code generation, but they treat source code as a flat sequence of tokens, ignoring its rich structural and hierarchical nature. In this work, I  propose a lightweight hybrid architecture that enhances code generation by combining a hierarchical chunk-based encoder (H-Net) with a pretrained autoregressive decoder (GPT-2). This model leverages structural priors by encoding code into semantically coherent segments using similarity-driven dynamic chunking, routed through a Transformer-based encoder, and decoded using GPT 2’s language modeling head.
+Large Language Models (LLMs) like GPT-2 have demonstrated strong performance in code generation, but they treat source code as a flat sequence of tokens, ignoring its rich structural and hierarchical nature. In this work, I  propose a hybrid architecture that enhances code generation by combining a hierarchical chunk-based encoder (H-Net) with a pretrained autoregressive decoder (GPT-2). This model leverages structural priors by encoding code into semantically coherent segments using similarity-driven dynamic chunking, routed through a Transformer-based encoder, and decoded using GPT 2’s language modeling head.
 <br/><br/>
 
 
