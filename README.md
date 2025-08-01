@@ -126,5 +126,35 @@ The notebook is a full end-to-end framework that will:
 
 Or use the models standalone:
 ```python
+from transformers import AutoTokenizer
 from hnet_gpt_models import create_hnet_gpt2_hybrid
+
+# Initialize tokenizer
+tokenizer = AutoTokenizer.from_pretrained('gpt2')
+tokenizer.pad_token = tokenizer.eos_token
+vocab_size = tokenizer.vocab_size
+
+# Create model
 model = create_hnet_gpt2_hybrid(vocab_size, tokenizer)
+
+# Generate code
+prompt = "def add(a, b):\n    return "
+inputs = tokenizer(prompt, return_tensors='pt')
+outputs = model.generate(
+    inputs.input_ids,
+    max_length=50,
+    temperature=0.7,
+    do_sample=True
+)
+generated_code = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(generated_code)
+```
+<br/>
+
+Alternatevly:
+
+```python
+# Load pre-trained weights if available
+import torch
+model.load_state_dict(torch.load('HNet-GPT2-Hybrid.pt'))
+model.eval()
