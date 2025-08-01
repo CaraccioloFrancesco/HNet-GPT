@@ -112,7 +112,7 @@ I am  open-sourcing everything to:
 <br/><br/>
 
 ## Quick Start 
-The notebook is a full end-to-end framework that will:
+The notebook in this repo is a full end-to-end framework that will:
 1. Install all required dependencies.
 2. Load the code_search_net dataset (or fall back to a built-in synthetic dataset if unavailable).
 3. Define the three model architectures: Pure GPT-2, Pure HNet, and the novel HNet-GPT Hybrid.
