@@ -9,6 +9,45 @@ from transformers import GPT2Model, GPT2Config
 
 
 
+# Top-k/Top-p filtering function
+def top_k_top_p_filtering(logits, top_k=0, top_p=1.0, filter_value=-float('Inf'), min_tokens_to_keep=1):
+    """
+    Filter a distribution of logits using top-k and/or nucleus (top-p) filtering
+    Args:
+        logits: logits distribution shape (batch_size, vocabulary size)
+        top_k: (int or float) If set to int > 0, only the top_k least likely tokens are kept per batch item.
+               If set to float (0.0 < top_k < 1.0), the number of tokens kept per batch item represents
+               the percentage of the vocabulary size (e.g. 0.2 means keep 20% of the vocabulary).
+        top_p: (float) If set to < 1.0, only the most likely tokens with probabilities that add up to >= top_p are
+               kept for generation.
+        filter_value: (float) value that will be used to fill filtered tokens.
+        min_tokens_to_keep: (int) Minimum number of tokens that cannot be filtered.
+    """
+    if top_k > 0:
+        if not isinstance(top_k, int):
+            top_k = int(top_k * logits.shape[-1]) # Convert to absolute number of tokens
+        top_k = min(max(top_k, min_tokens_to_keep), logits.size(-1)) # Clamp to (min_tokens_to_keep, vocab_size)
+        # Remove all tokens with a probability less than the last token of the top-k
+        indices_to_remove = logits < torch.topk(logits, top_k)[0][..., -1, None]
+        logits[indices_to_remove] = filter_value
+
+    if top_p < 1.0:
+        sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+        cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+
+        # Remove tokens with cumulative probability above the threshold (token with 0 are kept)
+        sorted_indices_to_remove = cumulative_probs > top_p
+        if min_tokens_to_keep > 1:
+            # Keep at least min_tokens_to_keep (set to false the first min_tokens_to_keep)
+            sorted_indices_to_remove[..., :min_tokens_to_keep] = 0
+        # Shift the indices to the right to keep the first token above the threshold
+        indices_to_remove = sorted_indices_to_remove.scatter(1, sorted_indices, sorted_indices_to_remove)
+        logits[indices_to_remove] = filter_value
+    return logits
+
+
+
+
 def create_pure_gpt2_baseline(vocab_size):
     """Pure GPT-2 baseline for comparison"""
 
