@@ -125,7 +125,7 @@ The notebook is a full end-to-end framework that will:
 <br/>
 
 ### Pre-trained Models
-All models are available in this [Google Drive folder](https://drive.google.com/drive/folders/1xyT01oplU3NYXMU31bz-gm0AFSNQqi-d?usp=sharing)
+All models are available here: [Google Drive folder](https://drive.google.com/drive/folders/1xyT01oplU3NYXMU31bz-gm0AFSNQqi-d?usp=sharing)
 
 ```python
 from transformers import AutoTokenizer
