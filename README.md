@@ -92,7 +92,7 @@ The hybrid's 32% success demonstrates that the hierarchical-sequential fusion me
 
 ## Call for Collaboration
 I am  open-sourcing everything to:
-- Start collaborations
+- Start collaborations --> you can write me a mail here : caracciolofrancesco98@gmail.com
 - Enable reproducibility
 - Gather community feedback
 - Validate results across different setups
